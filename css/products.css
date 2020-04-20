@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Verlag Book';
+    src: url('/font/Verlag-Book.otf');
+}
+
+@font-face {
+    font-family: 'Verlag Black';
+    src: url('/font/Verlag-Black.otf');
+}
+
+
+@font-face {
+    font-family: 'Verlag Bold';
+    src: url('/font/Verlag-Bold.otf');
+}
+
+body.products h2 {
+    font-family: 'Verlag Book', 'Lato', sans-serif;
+    font-weight: 400;
+    font-variant-numeric: lining-nums;
+    color: #256B71;
+}
+
+canvas {
+    font-family: 'Verlag Bold';
+}
+table.rates {
+    margin: auto;
+    width: 960px;
+    border-collapse: collapse;
+    font-family: 'Verlag Bold';
+    font-size: 11px;
+    line-height: 14px;
+}
+
+table.rates td {
+    padding:0;
+    margin:0;
+}
+
+table.rates th {
+    font-family: 'Verlag Bold';
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 3px solid black;
+    color: #1E3038;
+    vertical-align: bottom;
+
+}
+
+table.rates tr td:first-child {
+    width: 70px;
+    padding: 3px;
+ 
+}
+
+table.rates tr td:nth-child(3){
+    width:540px; /* Space Available to render charts*/
+}
+table.rates tr th:last-child {
+    width: 80px;
+ 
+}
+table.rates tr th:nth-last-child(2),
+table.rates tr td:nth-last-child(2) {
+    width:80px;
+    padding:0 2px 0 16px;
+}
+
+table.rates tr td:first-child a {
+    display: inline-block;
+    color:white;
+    background-color: #256B71 ;
+    border-radius: 15px;
+    width:60px;
+    line-height: 14px;
+    text-decoration: none;
+    text-align: center;
+}
+
+table.rates tr td:first-child a:after{
+    box-sizing: border-box;
+    right:0;
+    content:' >';
+}
+
+table.rates tbody tr:nth-child(even) {
+    background-color: #F9F9F9;
+}

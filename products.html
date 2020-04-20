@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/products.css">
+</head>
+
+<body class="products">
+    <h2>Defined Outcome Product Table</h2>
+    <img src="images/legend.png" style="margin:auto; width:400px; display: inline-block" />
+    <table class="rates">
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Buffer Type</th>
+                <th>
+                    <canvas id="rate-labels" width="480" height="60"></canvas>
+                </th>
+                <th>Outcome Period</th>
+                <th>Remaining Outcome Period</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="#"> NAPR</a>
+                </td>
+                <td>Nasdaq-100 Power Buffer ETF</td>
+                <td>
+                    <canvas id="my-canvas" width="480" height="60"></canvas>
+
+                </td>
+                <td>10/1/19-9/30/20</td>
+                <td>350 days</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="#">KAPR</a>
+                </td>
+                <td>Russell 2000 Power Buffer ETF</td>
+                <td>
+                    <canvas id="my-canvas2" width="480" height="60"></canvas>
+
+                </td>
+                <td>10/1/19-9/30/30</td>
+                <td>350 days</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="scripts/charts.js"></script>
+    <script>
+        renderLabels({ id: 'rate-labels', gridSize: 30 });
+        renderChart({
+            id: 'my-canvas'
+            , gridSize: 30
+            , fundReturn: 2
+            , indexReturn: 6
+            , buffer: -15
+            , cap: 10
+        });
+        renderChart({
+            id: 'my-canvas2'
+            , gridSize: 30
+            , fundReturn: 10
+            , indexReturn: 20
+            , buffer: -30
+            , cap: 12
+        });
+    </script>
+</body>
+
+</html>
