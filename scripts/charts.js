@@ -6,7 +6,6 @@ function renderLabels(cfg) {
     var canvas = document.getElementById(cfg.id);
     var ctx = canvas.getContext("2d");
     var canvas_width = canvas.width;
-    var canvas_height = canvas.height;
     var num_lines_y = Math.floor(canvas_width / grid_size);
 
     // Translate to the new origin. Now Y-axis of the canvas is opposite to the Y-axis of the graph. So the y-coordinate of each element will be negative of the actual
@@ -16,12 +15,12 @@ function renderLabels(cfg) {
     ctx.textAlign = 'center';
     // text  along the positive X-axis
     for (i = 0; i < (num_lines_y - y_axis_distance_grid_lines); i++) {
-        ctx.fillText(x_axis_starting_point.number * i + x_axis_starting_point.suffix, grid_size * i + 2, 25);
+        ctx.fillText(x_axis_starting_point.number * i + x_axis_starting_point.suffix, grid_size * i + 2, 5);
     }
 
     // Text along the negative X-axis
     for (i = 1; i < y_axis_distance_grid_lines; i++) {
-        ctx.fillText(-x_axis_starting_point.number * i + x_axis_starting_point.suffix, -grid_size * i + 2, 25);
+        ctx.fillText(-x_axis_starting_point.number * i + x_axis_starting_point.suffix, -grid_size * i + 2, 5);
     }
 
 }
@@ -38,7 +37,7 @@ function renderChart(cfg) {
 
     //AxisLine
     //ctx.strokeStyle = "red";
-    //var axisLine = grid_size * x_axis_distance_grid_lines + 0.5;
+    //var axisLine = canvas_height / 2 + 0.5;
     //ctx.moveTo(0, axisLine);
     //ctx.lineTo(canvas_width, axisLine);
     //ctx.stroke();
