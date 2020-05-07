@@ -89,3 +89,26 @@ table.rates tr td:first-child a:after{
 table.rates tbody tr:nth-child(even) {
     background-color: #F9F9F9;
 }
+
+div.tooltips{
+    position:relative;
+   
+}
+
+div.tooltips > div {
+    position: absolute;
+    top: 7px;
+    /*border:1px solid red;*/
+}
+
+div.tooltips div:hover::after{
+    content: attr(data-tooltip);
+    background-color:rgba(248, 242, 151,.75);
+    color:#1E3038;
+    border:1px solid orange;
+    padding: 0px 2px;
+    width:65px;
+    display: block;  
+    position:absolute;
+    left:-20px;
+}

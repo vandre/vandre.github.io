@@ -73,6 +73,7 @@ function renderChart(cfg) {
     plotCap(cfg.cap, grid_size, scale, ctx, canvas_width, canvas_height);
     plotFundReturn(cfg.fundReturn, grid_size, scale, ctx, canvas_width, canvas_height);
     plotIndexReturn(cfg.indexReturn, grid_size, scale, ctx, canvas_width, canvas_height);
+    renderTooltips(canvas, cfg.buffer, cfg.cap, cfg.indexReturn, cfg.fundReturn, grid_size, scale);
 }
 
 function plotRange(buffer, cap, gridSize, scale, context, canvasWidth, canvasHeight) {
@@ -150,6 +151,64 @@ function drawTriangle(ctx, side, cx, cy) {
     ctx.fill();
     ctx.closePath();
     ctx.save();
+}
+
+function renderTooltips(canvasEl, buffer, cap, indexReturn, fundReturn, gridSize, scale) {
+    var canvas_width = canvasEl.width;
+    var buffer_width = 4;
+    var cap_width = 4;
+    var fund_width = 11;
+    var index_width = 11;
+
+    var buffer_height = 14;
+    var cap_height = 14;
+    var fund_height = 14;
+    var index_height = 14;
+
+    var td = canvasEl.parentElement
+    var ttDiv = document.createElement('div');
+
+    var bDiv = document.createElement('div');
+    var iDiv = document.createElement('div');
+    var fDiv = document.createElement('div');
+    var cDiv = document.createElement('div');
+
+    bDiv.className = 'b';
+    bDiv.setAttribute("data-tooltip", "Buffer: " + buffer + "%");
+    var bufferPos = canvas_width / 2 + buffer * gridSize / scale;
+    bDiv.style.width = buffer_width;
+    bDiv.style.height = buffer_height;
+    bDiv.style.left = bufferPos - buffer_width / 2;
+
+    cDiv.className = 'c';
+    cDiv.setAttribute("data-tooltip", "Cap: " + cap + "%");
+    var capPos = canvas_width / 2 + cap * gridSize / scale;
+    cDiv.style.width = cap_width;
+    cDiv.style.height = cap_height;
+    cDiv.style.left = capPos - cap_width / 2;
+
+    iDiv.className = 'i';
+    iDiv.setAttribute("data-tooltip", "Index Return: " + indexReturn + "%");
+    var indexPos = canvas_width / 2 + indexReturn * gridSize / scale;
+    iDiv.style.width = index_width;
+    iDiv.style.height = index_height;
+    iDiv.style.left = indexPos - index_width / 2;
+
+    fDiv.className = 'f';
+    fDiv.setAttribute("data-tooltip", "Fund Return: " + fundReturn + "%");
+    var fundPos = canvas_width / 2 + fundReturn * gridSize / scale;
+    fDiv.style.width = fund_width;
+    fDiv.style.height = fund_height;
+    fDiv.style.left = fundPos - fund_width / 2;
+
+    ttDiv.className = 'tooltips';
+    ttDiv.style.width = canvas_width;
+
+    ttDiv.appendChild(bDiv);
+    ttDiv.appendChild(cDiv);
+    ttDiv.appendChild(iDiv);
+    ttDiv.appendChild(fDiv);
+    td.prepend(ttDiv);
 }
 
 
