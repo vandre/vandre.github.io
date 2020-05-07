@@ -208,7 +208,7 @@ function renderTooltips(canvasEl, buffer, cap, indexReturn, fundReturn, gridSize
     ttDiv.appendChild(cDiv);
     ttDiv.appendChild(iDiv);
     ttDiv.appendChild(fDiv);
-    td.prepend(ttDiv);
+    td.insertBefore(ttDiv, canvasEl);
 }
 
 
