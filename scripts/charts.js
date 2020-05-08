@@ -1,13 +1,12 @@
 function renderLabels(cfg) {
-    var grid_size = cfg.gridSize;
+    var num_lines_y = 16 //This is hard-coded to 16 because we want to show 8 lines on each side of axis
+    var canvas = document.getElementById(cfg.id);
+    var canvas_width = canvas.width;
+    var grid_size = Math.floor(canvas_width / num_lines_y);
     var x_axis_distance_grid_lines = 1;
     var y_axis_distance_grid_lines = 8; //9 positve lines and 9 negative
     var x_axis_starting_point = { number: 5, suffix: '%' };
-    var canvas = document.getElementById(cfg.id);
     var ctx = canvas.getContext("2d");
-    var canvas_width = canvas.width;
-    var num_lines_y = Math.floor(canvas_width / grid_size);
-
     // Translate to the new origin. Now Y-axis of the canvas is opposite to the Y-axis of the graph. So the y-coordinate of each element will be negative of the actual
     ctx.translate(y_axis_distance_grid_lines * grid_size, x_axis_distance_grid_lines * grid_size);
     ctx.lineWidth = 1;
@@ -25,15 +24,14 @@ function renderLabels(cfg) {
 
 }
 function renderChart(cfg) {
-    var grid_size = cfg.gridSize;
-    var x_axis_distance_grid_lines = 1;
+    var num_lines_y = 16;
+    var canvas = document.getElementById(cfg.id);
+    var canvas_width = canvas.width;
+    var grid_size = Math.floor(canvas_width / num_lines_y);
     var y_axis_distance_grid_lines = 8; //9 positve lines and 9 negative
     var x_axis_starting_point = { number: 5, suffix: '%' };
-    var canvas = document.getElementById(cfg.id);
     var ctx = canvas.getContext("2d");
-    var canvas_width = canvas.width;
     var canvas_height = canvas.height;
-    var num_lines_y = Math.floor(canvas_width / grid_size);
 
     //AxisLine
     //ctx.strokeStyle = "red";
